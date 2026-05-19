@@ -1,224 +1,89 @@
 <!DOCTYPE html>
-<html lang="id">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mie Ongklok Instan — Cita Rasa Autentik Wonosobo</title>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Welcome to Firebase Hosting</title>
 
-  <!-- Favicon -->
-  <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <!-- update the version number as needed -->
+    <script defer src="/__/firebase/12.13.0/firebase-app-compat.js"></script>
+    <!-- include only the Firebase features as you need -->
+    <script defer src="/__/firebase/12.13.0/firebase-auth-compat.js"></script>
+    <script defer src="/__/firebase/12.13.0/firebase-database-compat.js"></script>
+    <script defer src="/__/firebase/12.13.0/firebase-firestore-compat.js"></script>
+    <script defer src="/__/firebase/12.13.0/firebase-functions-compat.js"></script>
+    <script defer src="/__/firebase/12.13.0/firebase-messaging-compat.js"></script>
+    <script defer src="/__/firebase/12.13.0/firebase-storage-compat.js"></script>
+    <script defer src="/__/firebase/12.13.0/firebase-analytics-compat.js"></script>
+    <script defer src="/__/firebase/12.13.0/firebase-remote-config-compat.js"></script>
+    <script defer src="/__/firebase/12.13.0/firebase-performance-compat.js"></script>
+    <!-- 
+      initialize the SDK after all desired features are loaded, set useEmulator to false
+      to avoid connecting the SDK to running emulators.
+    -->
+    <script defer src="/__/firebase/init.js?useEmulator=true"></script>
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-
-  <!-- CSS -->
-  <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-
-  <!-- ===== NAVBAR ===== -->
-  <nav id="navbar">
-    <a href="#flavor-profile" class="nav-logo">MIE ONGKLOK INSTAN</a>
-
-    <ul class="nav-center" id="navLinks">
-      <li><a href="#flavor-profile" data-target="flavor-profile">Cita Rasa</a></li>
-      <li><a href="#features" data-target="features">Informasi Nutrisi</a></li>
-      <li><a href="#steps-wrap" data-target="steps-wrap">Cara Penyajian</a></li>
-      <li><a href="#nutritional-info" data-target="nutritional-info">Tentang Mie Ongklok</a></li>
-    </ul>
-
-    <a href="#our-story" class="btn-buynow">Buy Now</a>
-
-    <button class="hamburger" id="hamburger" onclick="toggleNav()" aria-label="Buka menu">
-      <span></span><span></span><span></span>
-    </button>
-  </nav>
-
-  <!-- ===== HERO: Flavor Profile ===== -->
-  <section id="flavor-profile">
-    <div class="hero-text reveal">
-      <h1>CITA RASA AUTENTIK<br>WONOSOBO DALAM<br>SATU GENGGAMAN</h1>
-      <p>Nikmati mie kuah kental kaya rempah dengan ebi asli, kini hadir dalam kemasan praktis yang siap menemani setiap momen lapar Anda.</p>
-      <div class="hero-btns">
-        <a href="#our-story" class="btn-solid">Beli Sekarang</a>
-        <a href="#steps-wrap" class="btn-outline">Lihat Resep</a>
-      </div>
+    <style media="screen">
+      body { background: #ECEFF1; color: rgba(0,0,0,0.87); font-family: Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0; }
+      #message { background: white; max-width: 360px; margin: 100px auto 16px; padding: 32px 24px; border-radius: 3px; }
+      #message h2 { color: #ffa100; font-weight: bold; font-size: 16px; margin: 0 0 8px; }
+      #message h1 { font-size: 22px; font-weight: 300; color: rgba(0,0,0,0.6); margin: 0 0 16px;}
+      #message p { line-height: 140%; margin: 16px 0 24px; font-size: 14px; }
+      #message a { display: block; text-align: center; background: #039be5; text-transform: uppercase; text-decoration: none; color: white; padding: 16px; border-radius: 4px; }
+      #message, #message a { box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); }
+      #load { color: rgba(0,0,0,0.4); text-align: center; font-size: 13px; }
+      @media (max-width: 600px) {
+        body, #message { margin-top: 0; background: white; box-shadow: none; }
+        body { border-top: 16px solid #ffa100; }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="message">
+      <h2>Welcome</h2>
+      <h1>Firebase Hosting Setup Complete</h1>
+      <p>You're seeing this because you've successfully setup Firebase Hosting. Now it's time to go build something extraordinary!</p>
+      <a target="_blank" href="https://firebase.google.com/docs/hosting/">Open Hosting Documentation</a>
     </div>
+    <p id="load">Firebase SDK Loading&hellip;</p>
 
-    <div class="hero-packs reveal d2">
-      <!-- Ganti src dengan foto kemasan asli -->
-      <div class="pack-card p1">
-        <img src="assets/images/instanMie.png" alt="Mie Ongklok Instan kemasan 1"
-             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
-        <div class="pack-placeholder" style="display:none">
-          <div class="pack-icon">🍜</div>
-          <div class="pack-name">MIE ONGKLOK<br>INSTAN</div>
-          <div class="pack-tagline">The Authentic Taste of Wonosobo, Central Java</div>
-          <div class="pack-badges">
-            <span class="pbadge">Tanpa Pengawet</span>
-            <span class="pbadge">Ebi Asli</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        const loadEl = document.querySelector('#load');
+        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
+        // // The Firebase SDK is initialized and available here!
+        //
+        // firebase.auth().onAuthStateChanged(user => { });
+        // firebase.database().ref('/path/to/ref').on('value', snapshot => { });
+        // firebase.firestore().doc('/foo/bar').get().then(() => { });
+        // firebase.functions().httpsCallable('yourFunction')().then(() => { });
+        // firebase.messaging().requestPermission().then(() => { });
+        // firebase.storage().ref('/path/to/ref').getDownloadURL().then(() => { });
+        // firebase.analytics(); // call to activate
+        // firebase.analytics().logEvent('tutorial_completed');
+        // firebase.performance(); // call to activate
+        //
+        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
 
-  <!-- ===== FEATURES ===== -->
-  <section id="features">
-    <div class="features-grid">
-      <div class="feat-card reveal">
-        <div class="feat-icon">
-          <img src="assets/icons/tanpa-pengawet.svg" alt="Tanpa Pengawet"
-               onerror="this.outerHTML='🚫'">
-        </div>
-        <h3>Tanpa Pengawet</h3>
-        <p>Dibuat dengan bahan-bahan alami untuk menjaga kesegaran dan kesehatan Anda sekeluarga.</p>
-      </div>
-      <div class="feat-card reveal d1">
-        <div class="feat-icon">
-          <img src="assets/icons/ebi-asli.svg" alt="Ebi Asli"
-               onerror="this.outerHTML='🦐'">
-        </div>
-        <h3>Ebi Asli</h3>
-        <p>Gurihnya ebi pilihan yang memberikan aroma khas laut dalam setiap sendokan kuah kental.</p>
-      </div>
-      <div class="feat-card reveal d2">
-        <div class="feat-icon">
-          <img src="assets/icons/rempah.svg" alt="Bumbu Rempah"
-               onerror="this.outerHTML='🌿'">
-        </div>
-        <h3>Bumbu Rempah Pilihan</h3>
-        <p>Racikan rempah rahasia khas Wonosobo yang meresap sempurna hingga ke tiap helai mie.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== COOKING GUIDE ===== -->
-  <section id="cooking-guide">
-
-    <!-- Product detail 3-kolom -->
-    <div class="prod-3col">
-      <div class="prod-left reveal">
-        <h2>KUAH KENTAL<br>KAYA REMPAH</h2>
-        <p>Tekstur kuah yang "mantap" dan kental adalah jiwa dari Mie Ongklok. Dibuat dengan pati singkong berkualitas dan campuran bumbu tradisional yang kental akan cita rasa.</p>
-        <a href="#features" class="detail-link">⊙ Rahasia Kelezatan Wonosobo</a>
-      </div>
-
-      <div class="prod-mid reveal d1">
-        <!-- Ganti dengan foto mie bowl asli -->
-        <img src="assets/images/semangkukMieOngklok.png" alt="Mie Ongklok kuah kental"
-             onerror="this.style.display='none'; this.nextElementSibling.style.display='block'">
-        <div class="bowl-fallback" style="display:none">🍲</div>
-      </div>
-
-      <div class="prod-right reveal d2">
-        <div class="rc dark">
-          <h4>Topping Autentik</h4>
-          <p>Kucai segar &amp; Kol renyah yang memberikan tekstur kontras sempurna.</p>
-        </div>
-        <div class="rc orange">
-          <h4>Mie Kuning Kenyal</h4>
-          <p>Mie telur khusus yang tidak mudah lembek saat disiram kuah panas.</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Langkah memasak -->
-    <div class="steps-wrap" id="steps-wrap">
-      <h2>SAJIKAN KELEZATAN DALAM MENIT</h2>
-      <p class="sub">Ikuti langkah mudah ini untuk rasa yang otentik.</p>
-      <div class="steps-row">
-        <div class="step reveal">
-          <div class="snum">1</div>
-          <h4>Rebus Mie</h4>
-          <p>Didihkan 400ml air, masukkan mie dan sayuran kering selama 3 menit.</p>
-        </div>
-        <div class="step reveal d1">
-          <div class="snum">2</div>
-          <h4>Tiriskan</h4>
-          <p>Angkat mie dan tiriskan airnya, letakkan di dalam mangkuk saji.</p>
-        </div>
-        <div class="step reveal d2">
-          <div class="snum">3</div>
-          <h4>Campur Bumbu</h4>
-          <p>Siapkan kuah kental dengan bumbu ebi rahasia dan siram ke atas mie.</p>
-        </div>
-        <div class="step reveal d3">
-          <div class="snum">4</div>
-          <h4>Sajikan Panas</h4>
-          <p>Nikmati selagi panas dengan sate sapi atau tempe kemul khas Wonosobo.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== NUTRITIONAL INFO / WARISAN ===== -->
-  <section id="nutritional-info">
-    <div class="nutri-text reveal">
-      <span class="badge">⊙ Warisan Kuliner Wonosobo</span>
-      <h2>WARISAN KULINER WONOSOBO</h2>
-      <p>Mie Ongklok bukan sekadar makanan; ia adalah simbol kehangatan dari dataran tinggi Dieng. Nama "Ongklok" berasal dari alat bambu tradisional yang digunakan untuk meracik mie.</p>
-      <p>Kami membawa teknik dan rasa asli ini ke meja makan Anda, di mana pun Anda berada.</p>
-      <a href="#our-story" class="nutri-link">Resep Turun Temurun Sejak Puluhan Tahun</a>
-    </div>
-
-    <div class="nutri-img reveal d1">
-      <!-- Ganti dengan foto dapur/tungku Wonosobo -->
-      <img src="assets/images/memasak.png" alt="Dapur tradisional Wonosobo"
-           onerror="this.style.display='none'; this.nextElementSibling.style.display='block'">
-      <div class="pot-fallback" style="display:none">🫕</div>
-      <div class="caption">Tradisi memasak turun-temurun dari dapur Wonosobo yang kini hadir untuk semua.</div>
-    </div>
-  </section>
-
-  <!-- ===== OUR STORY / CTA ===== -->
-  <section id="our-story">
-    <h2 class="reveal">BAWA PULANG KEHANGATAN<br>WONOSOBO SEKARANG</h2>
-    <p class="reveal d1">Dapatkan cita rasa autentik yang menghangatkan di setiap suapan. Pesan sekarang dan nikmati pengiriman ke seluruh Indonesia.</p>
-    <div class="cta-row reveal d2">
-      <a href="https://id.shp.ee/pxqoG93m" target="_blank" class="btn-fill">Beli Sekarang</a>
-      <a href="https://wa.me/6285226049130" target="_blank" class="btn-ghost">Hubungi Kami</a>
-    </div>
-  </section>
-
-  <!-- ===== FOOTER ===== -->
-  <footer>
-    <div class="footer-inner">
-      <div>
-        <div class="f-brand-name">MIE ONGKLOK<br>INSTAN</div>
-        <div class="f-brand-tag">Warisan Autentik dalam Setiap Mangkok</div>
-      </div>
-      <div class="footer-col">
-        <h5>Produk</h5>
-        <ul>
-          <li><a href="#">Varian Rasa</a></li>
-          <li><a href="#">Paket Bundling</a></li>
-          <li><a href="#">Reseller</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h5>Bantuan</h5>
-        <ul>
-          <li><a href="#">Shipping Info</a></li>
-          <li><a href="#">Terms of Service</a></li>
-          <li><a href="#">Privacy Policy</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h5>Hubungi Kami</h5>
-        <ul>
-          <li><a href="#">Wonosobo, Jawa Tengah, Indonesia</a></li>
-          <li><a href="https://wa.me/6285226049130">WhatsApp</a></li>
-          <li><a href="mailto:halo@mieongklokinstan.id">Email Kami</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      © 2024 Mie Ongklok Instan Wonosobo. Warisan Autentik dalam Setiap Mangkok.
-    </div>
-  </footer>
-
-  <!-- JavaScript -->
-  <script src="js/main.js"></script>
-</body>
+        try {
+          let app = firebase.app();
+          let features = [
+            'auth', 
+            'database', 
+            'firestore',
+            'functions',
+            'messaging', 
+            'storage', 
+            'analytics', 
+            'remoteConfig',
+            'performance',
+          ].filter(feature => typeof app[feature] === 'function');
+          loadEl.textContent = `Firebase SDK loaded with ${features.join(', ')}`;
+        } catch (e) {
+          console.error(e);
+          loadEl.textContent = 'Error loading the Firebase SDK, check the console.';
+        }
+      });
+    </script>
+  </body>
 </html>
