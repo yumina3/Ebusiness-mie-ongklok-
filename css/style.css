@@ -1,0 +1,929 @@
+/* ===========================================
+   style.css — Mie Ongklok Instan
+   =========================================== */
+
+/* ===== RESET & VARIABEL ===== */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --brown:        #3B1A06;
+  --brown-mid:    #5C2408;
+  --orange:       #C95C1A;
+  --orange-btn:   #B84F12;
+  --cream-bg:     #F5ECD8;
+  --cream-card:   #EDE0C8;
+  --cream-light:  #FAF5EC;
+  --white:        #FFFFFF;
+  --text-main:    #1A0A02;
+  --text-body:    #3D2010;
+  --text-muted:   #7A5030;
+  --font-head:    'Montserrat', sans-serif;
+  --font-body:    'Inter', sans-serif;
+  --nav-h:        60px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--cream-bg);
+  color: var(--text-main);
+  overflow-x: hidden;
+}
+
+/* ===== NAVBAR ===== */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 200;
+  height: var(--nav-h);
+  background: rgba(245, 236, 216, 0.97);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(59, 26, 6, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 48px;
+  transition: box-shadow 0.3s;
+}
+
+nav.scrolled {
+  box-shadow: 0 2px 16px rgba(59, 26, 6, 0.10);
+}
+
+.nav-logo {
+  font-family: var(--font-head);
+  font-size: 13px;
+  font-weight: 900;
+  color: var(--brown);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.nav-center {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+  list-style: none;
+}
+
+.nav-center a {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-body);
+  text-decoration: none;
+  position: relative;
+  padding-bottom: 3px;
+  transition: color 0.2s;
+  white-space: nowrap;
+}
+
+/* Garis bawah animasi */
+.nav-center a::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 2px;
+  background: var(--orange);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.25s;
+}
+
+.nav-center a:hover,
+.nav-center a.active {
+  color: var(--orange);
+}
+
+.nav-center a:hover::after,
+.nav-center a.active::after {
+  transform: scaleX(1);
+}
+
+.btn-buynow {
+  background: var(--orange-btn);
+  color: white;
+  padding: 10px 22px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: background 0.2s, transform 0.15s;
+  white-space: nowrap;
+}
+
+.btn-buynow:hover {
+  background: var(--brown-mid);
+  transform: translateY(-1px);
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 4px;
+}
+
+.hamburger span {
+  width: 22px;
+  height: 2px;
+  background: var(--brown);
+  border-radius: 2px;
+  display: block;
+  transition: all 0.3s;
+}
+
+/* ===== TOMBOL UMUM ===== */
+.btn-solid {
+  background: var(--brown);
+  color: white;
+  padding: 13px 26px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  text-decoration: none;
+  transition: background 0.2s, transform 0.15s;
+  display: inline-block;
+}
+
+.btn-solid:hover {
+  background: var(--orange-btn);
+  transform: translateY(-1px);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--brown);
+  padding: 12px 26px;
+  border: 2px solid var(--brown);
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  text-decoration: none;
+  transition: all 0.2s;
+  display: inline-block;
+}
+
+.btn-outline:hover {
+  background: var(--brown);
+  color: white;
+}
+
+/* ===== HERO: FLAVOR PROFILE ===== */
+#flavor-profile {
+  min-height: 100vh;
+  padding: calc(var(--nav-h) + 60px) 48px 80px;
+  background: var(--cream-bg);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 40px;
+}
+
+.hero-text h1 {
+  font-family: var(--font-head);
+  font-size: clamp(28px, 3.8vw, 50px);
+  font-weight: 900;
+  text-transform: uppercase;
+  color: var(--brown);
+  line-height: 1.06;
+  letter-spacing: -0.5px;
+  margin-bottom: 20px;
+}
+
+.hero-text p {
+  font-size: 14px;
+  line-height: 1.85;
+  color: var(--text-body);
+  max-width: 400px;
+  margin-bottom: 36px;
+}
+
+.hero-btns {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* Kartu kemasan produk */
+.hero-packs {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  align-items: center;
+}
+
+.pack-card {
+  width: 100%;
+  max-width: 300px;
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+}
+
+.pack-card img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 12px;
+}
+
+/* Fallback saat gambar belum ada */
+.pack-placeholder {
+  padding: 28px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  text-align: center;
+  color: var(--cream-bg);
+  border-radius: 12px;
+  min-height: 180px;
+}
+
+.pack-card.p1 .pack-placeholder {
+  background: linear-gradient(145deg, #8B3210, #3B1206);
+}
+
+.pack-card.p2 .pack-placeholder {
+  background: linear-gradient(145deg, #5C2008, #20080A);
+}
+
+.pack-icon { font-size: 44px; }
+
+.pack-name {
+  font-family: var(--font-head);
+  font-size: 18px;
+  font-weight: 900;
+  text-transform: uppercase;
+  line-height: 1.1;
+}
+
+.pack-tagline {
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  opacity: 0.6;
+}
+
+.pack-badges {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.pbadge {
+  background: var(--orange-btn);
+  color: white;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  padding: 4px 10px;
+  border-radius: 10px;
+  text-transform: uppercase;
+}
+
+/* ===== FEATURES ===== */
+#features {
+  background: var(--cream-card);
+  padding: 72px 48px;
+  border-top: 1px solid rgba(59, 26, 6, 0.07);
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.feat-card {
+  background: var(--cream-light);
+  border: 1.5px solid rgba(59, 26, 6, 0.09);
+  border-radius: 10px;
+  padding: 32px 24px;
+  text-align: center;
+  transition: border-color 0.2s, transform 0.2s;
+}
+
+.feat-card:hover {
+  border-color: var(--orange);
+  transform: translateY(-4px);
+}
+
+.feat-icon {
+  width: 50px;
+  height: 50px;
+  background: var(--orange-btn);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  margin: 0 auto 16px;
+  overflow: hidden;
+}
+
+.feat-icon img {
+  width: 26px;
+  height: 26px;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+}
+
+.feat-card h3 {
+  font-family: var(--font-head);
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--brown);
+  margin-bottom: 10px;
+}
+
+.feat-card p {
+  font-size: 13px;
+  line-height: 1.75;
+  color: var(--text-muted);
+}
+
+/* ===== COOKING GUIDE ===== */
+#cooking-guide {
+  background: var(--cream-light);
+}
+
+/* 3 kolom produk */
+.prod-3col {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  min-height: 420px;
+}
+
+.prod-left {
+  background: var(--cream-light);
+  padding: 48px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-right: 1px solid rgba(59, 26, 6, 0.07);
+}
+
+.prod-left h2 {
+  font-family: var(--font-head);
+  font-size: 24px;
+  font-weight: 900;
+  text-transform: uppercase;
+  color: var(--brown);
+  line-height: 1.1;
+  margin-bottom: 16px;
+}
+
+.prod-left p {
+  font-size: 14px;
+  line-height: 1.8;
+  color: var(--text-body);
+  margin-bottom: 24px;
+}
+
+.detail-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--orange);
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: 1.5px solid var(--orange);
+  padding-bottom: 2px;
+  transition: opacity 0.2s;
+}
+
+.detail-link:hover { opacity: 0.7; }
+
+.prod-mid {
+  background: linear-gradient(160deg, #4A1A06, #1E0803);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 340px;
+  overflow: hidden;
+}
+
+.prod-mid img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.bowl-fallback {
+  font-size: 110px;
+  filter: drop-shadow(0 8px 24px rgba(0,0,0,0.35));
+}
+
+.prod-right {
+  display: flex;
+  flex-direction: column;
+}
+
+.rc {
+  flex: 1;
+  padding: 32px 28px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: var(--cream-light);
+}
+
+.rc + .rc {
+  border-top: 1px solid rgba(59, 26, 6, 0.07);
+}
+
+.rc.dark  { background: var(--brown); }
+.rc.orange { background: var(--orange-btn); }
+
+.rc h4 {
+  font-family: var(--font-head);
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--brown);
+  margin-bottom: 10px;
+}
+
+.rc.dark h4,
+.rc.orange h4 {
+  color: rgba(245, 236, 216, 0.65);
+}
+
+.rc p {
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--text-body);
+}
+
+.rc.dark p,
+.rc.orange p {
+  color: rgba(245, 236, 216, 0.85);
+}
+
+/* Langkah memasak */
+.steps-wrap {
+  background: var(--cream-bg);
+  padding: 80px 48px;
+  text-align: center;
+}
+
+.steps-wrap h2 {
+  font-family: var(--font-head);
+  font-size: clamp(18px, 2.8vw, 30px);
+  font-weight: 900;
+  text-transform: uppercase;
+  color: var(--brown);
+  margin-bottom: 8px;
+}
+
+.steps-wrap .sub {
+  font-size: 14px;
+  color: var(--text-muted);
+  margin-bottom: 52px;
+}
+
+.steps-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  max-width: 860px;
+  margin: 0 auto;
+  position: relative;
+}
+
+/* Garis putus antar langkah */
+.steps-row::before {
+  content: '';
+  position: absolute;
+  top: 23px; left: 12%; right: 12%;
+  height: 2px;
+  background: repeating-linear-gradient(
+    90deg,
+    var(--brown) 0, var(--brown) 6px,
+    transparent 6px, transparent 14px
+  );
+  opacity: 0.18;
+}
+
+.step { position: relative; }
+
+.snum {
+  width: 46px;
+  height: 46px;
+  background: var(--brown);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-head);
+  font-size: 17px;
+  font-weight: 900;
+  color: white;
+  margin: 0 auto 18px;
+  position: relative;
+  z-index: 1;
+  border: 3px solid var(--cream-bg);
+}
+
+.step h4 {
+  font-family: var(--font-head);
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: var(--brown);
+  margin-bottom: 8px;
+}
+
+.step p {
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--text-muted);
+}
+
+/* ===== NUTRITIONAL INFO / WARISAN ===== */
+#nutritional-info {
+  background: var(--cream-bg);
+  padding: 80px 48px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
+}
+
+.nutri-text .badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--orange);
+  border: 1.5px solid var(--orange);
+  border-radius: 20px;
+  padding: 5px 14px;
+  margin-bottom: 20px;
+}
+
+.nutri-text h2 {
+  font-family: var(--font-head);
+  font-size: clamp(20px, 2.5vw, 32px);
+  font-weight: 900;
+  text-transform: uppercase;
+  color: var(--brown);
+  line-height: 1.15;
+  margin-bottom: 18px;
+}
+
+.nutri-text p {
+  font-size: 14px;
+  line-height: 1.85;
+  color: var(--text-body);
+  margin-bottom: 14px;
+}
+
+.nutri-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--orange);
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  margin-top: 10px;
+}
+
+.nutri-link::after {
+  content: '→';
+  transition: transform 0.2s;
+}
+
+.nutri-link:hover::after {
+  transform: translateX(4px);
+}
+
+.nutri-img {
+  background: linear-gradient(145deg, #2C1005, #5A2008);
+  border-radius: 20px;
+  height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.nutri-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 20px;
+}
+
+.pot-fallback {
+  font-size: 80px;
+}
+
+.nutri-img .caption {
+  position: absolute;
+  bottom: 20px; left: 20px; right: 20px;
+  color: rgba(245, 236, 216, 0.75);
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.5;
+  background: linear-gradient(to top, rgba(20,6,1,0.7), transparent);
+  padding: 20px 0 0;
+}
+
+/* ===== OUR STORY / CTA ===== */
+#our-story {
+  background: var(--brown);
+  padding: 88px 48px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+#our-story::before {
+  content: '';
+  position: absolute;
+  top: -60px; left: 50%;
+  transform: translateX(-50%);
+  width: 500px; height: 300px;
+  background: radial-gradient(circle, rgba(201, 92, 26, 0.13) 0%, transparent 70%);
+}
+
+#our-story h2 {
+  font-family: var(--font-head);
+  font-size: clamp(20px, 3.5vw, 40px);
+  font-weight: 900;
+  text-transform: uppercase;
+  color: var(--cream-bg);
+  line-height: 1.1;
+  margin-bottom: 18px;
+  position: relative;
+}
+
+#our-story p {
+  font-size: 15px;
+  color: rgba(245, 236, 216, 0.6);
+  max-width: 460px;
+  margin: 0 auto 40px;
+  line-height: 1.75;
+  position: relative;
+}
+
+.cta-row {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  flex-wrap: wrap;
+  position: relative;
+}
+
+.btn-fill {
+  background: var(--orange-btn);
+  color: white;
+  padding: 14px 30px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  text-decoration: none;
+  transition: background 0.2s, transform 0.15s;
+}
+
+.btn-fill:hover {
+  background: #8B3A0A;
+  transform: translateY(-1px);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--cream-bg);
+  padding: 13px 30px;
+  border-radius: 4px;
+  border: 2px solid rgba(245, 236, 216, 0.3);
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+
+.btn-ghost:hover {
+  border-color: var(--cream-bg);
+}
+
+/* ===== FOOTER ===== */
+footer {
+  background: #140602;
+  padding: 60px 48px 28px;
+}
+
+.footer-inner {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr 1fr;
+  gap: 40px;
+  margin-bottom: 48px;
+}
+
+.f-brand-name {
+  font-family: var(--font-head);
+  font-size: 18px;
+  font-weight: 900;
+  text-transform: uppercase;
+  color: var(--cream-bg);
+  line-height: 1.15;
+  margin-bottom: 8px;
+}
+
+.f-brand-tag {
+  font-size: 13px;
+  color: rgba(245, 236, 216, 0.35);
+}
+
+.f-socials {
+  display: flex;
+  gap: 8px;
+  margin-top: 18px;
+}
+
+.f-soc {
+  width: 32px; height: 32px;
+  background: rgba(245, 236, 216, 0.07);
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+
+.f-soc:hover {
+  background: var(--orange-btn);
+}
+
+.footer-col h5 {
+  font-family: var(--font-head);
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--cream-bg);
+  margin-bottom: 14px;
+}
+
+.footer-col ul {
+  list-style: none;
+}
+
+.footer-col ul li {
+  margin-bottom: 10px;
+}
+
+.footer-col ul a {
+  font-size: 13px;
+  color: rgba(245, 236, 216, 0.38);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.footer-col ul a:hover {
+  color: var(--orange);
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(245, 236, 216, 0.07);
+  padding-top: 20px;
+  text-align: center;
+  font-size: 12px;
+  color: rgba(245, 236, 216, 0.25);
+}
+
+/* ===== SCROLL REVEAL ===== */
+.reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: none;
+}
+
+.d1 { transition-delay: 0.1s; }
+.d2 { transition-delay: 0.2s; }
+.d3 { transition-delay: 0.3s; }
+.d4 { transition-delay: 0.4s; }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 960px) {
+  nav { padding: 0 24px; }
+
+  .nav-center { display: none; }
+  .nav-center.open {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+    position: fixed;
+    top: var(--nav-h); left: 0; right: 0;
+    background: var(--cream-bg);
+    padding: 8px 24px 20px;
+    border-bottom: 1px solid rgba(59, 26, 6, 0.08);
+    box-shadow: 0 8px 24px rgba(59, 26, 6, 0.1);
+  }
+  .nav-center.open li {
+    width: 100%;
+    border-bottom: 1px solid rgba(59, 26, 6, 0.05);
+  }
+  .nav-center.open a {
+    padding: 14px 0;
+    display: block;
+  }
+  .hamburger { display: flex; }
+
+  #flavor-profile {
+    grid-template-columns: 1fr;
+    padding: calc(var(--nav-h) + 32px) 24px 56px;
+    text-align: center;
+  }
+  .hero-text p { max-width: 100%; }
+  .hero-btns { justify-content: center; }
+  .hero-packs { flex-direction: row; justify-content: center; gap: 12px; }
+  .pack-card { max-width: 200px; }
+
+  #features { padding: 48px 24px; }
+  .features-grid {
+    grid-template-columns: 1fr;
+    max-width: 380px;
+    margin: 0 auto;
+  }
+
+  .prod-3col { grid-template-columns: 1fr; }
+  .prod-left {
+    border-right: none;
+    border-bottom: 1px solid rgba(59, 26, 6, 0.07);
+    padding: 36px 24px;
+  }
+  .prod-mid { min-height: 220px; }
+  .prod-right { flex-direction: row; }
+  .rc + .rc {
+    border-top: none;
+    border-left: 1px solid rgba(59, 26, 6, 0.07);
+  }
+
+  .steps-wrap { padding: 56px 24px; }
+  .steps-row { grid-template-columns: repeat(2, 1fr); }
+  .steps-row::before { display: none; }
+
+  #nutritional-info {
+    grid-template-columns: 1fr;
+    padding: 56px 24px;
+    gap: 36px;
+  }
+
+  #our-story { padding: 64px 24px; }
+
+  footer { padding: 48px 24px 24px; }
+  .footer-inner { grid-template-columns: 1fr 1fr; gap: 28px; }
+}
+
+@media (max-width: 540px) {
+  .steps-row { grid-template-columns: 1fr; }
+  .prod-right { flex-direction: column; }
+  .rc + .rc {
+    border-left: none;
+    border-top: 1px solid rgba(59, 26, 6, 0.07);
+  }
+  .footer-inner { grid-template-columns: 1fr; }
+  .hero-packs { flex-direction: column; align-items: center; }
+}
